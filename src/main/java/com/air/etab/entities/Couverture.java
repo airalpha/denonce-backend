@@ -15,7 +15,6 @@ public abstract class Couverture implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @OneToMany(mappedBy = "couverture")
     private List<Role> roles;
 
