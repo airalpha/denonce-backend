@@ -27,8 +27,14 @@ public class DenonciationServiceImpl implements  DenonciationService{
         return denonciationRepository.findById(id);
     }
 
-    public Denonciation save(Denonciation e){
-        return denonciationRepository.save(e);
+    public Denonciation save(Denonciation d){
+        if(d.getAge() < 10 || d.getEtablissement().getNom().isEmpty()
+                || d.getTypeDenonciation().getNom().isEmpty()
+                || d.getPersonneConcerne().isEmpty() || d.getMessage().isEmpty()){
+            throw new RuntimeException("Verifier vos champs");
+        }else{
+            return denonciationRepository.save(d);
+        }
     }
 
     public Denonciation update(Long id, Denonciation d){

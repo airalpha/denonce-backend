@@ -7,6 +7,9 @@ import com.air.etab.repository.AdministrateurRepository;
 import com.air.etab.repository.CouvertureRepository;
 import com.air.etab.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -85,5 +88,16 @@ public class AdministrateurServiceImpl implements AdministrateurService {
     @Override
     public Optional<Administrateur> getAdministrateur(Long id) {
         return administrateurRepository.findById(id);
+    }
+
+    public Page<Administrateur> findAll(Optional<String> nom,
+                                        Optional<Integer> page,
+                                        Optional<Integer> size,
+                                        Optional<String> sortBy) {
+        return administrateurRepository.findByNom(nom.orElse(""),
+                new PageRequest(page.orElse(0),
+                        size.orElse(5),
+                        Sort.Direction.ASC,
+                        sortBy.orElse("id")));
     }
 }

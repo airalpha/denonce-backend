@@ -4,6 +4,7 @@ import com.air.etab.entities.Administrateur;
 import com.air.etab.entities.Couverture;
 import com.air.etab.service.AdministrateurService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,10 +51,6 @@ public class AdministrateurController {
 
     @PutMapping(value = "/update-role/{nom}")
     public void addRoleToAdmin(@PathVariable String nom, @RequestParam Long id) {
-        System.out.println("****************");
-        System.out.println(nom);
-        System.out.println("****************");
-
         administrateurService.addRoleToAdmin(nom, id);
     }
 
@@ -70,5 +67,13 @@ public class AdministrateurController {
     @GetMapping("/user/{id}")
     public Optional<Administrateur> getAdministrateur(@PathVariable Long id) {
         return administrateurService.getAdministrateur(id);
+    }
+
+    @RequestMapping(value="/users/chercher", method=RequestMethod.GET)
+    public Page<Administrateur> findAll(@RequestParam Optional<String> nom,
+                                        @RequestParam Optional<Integer> page,
+                                        @RequestParam Optional<Integer> size,
+                                        @RequestParam Optional<String> sortBy){
+        return administrateurService.findAll(nom, page, size, sortBy);
     }
 }

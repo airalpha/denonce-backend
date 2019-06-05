@@ -25,4 +25,9 @@ public class Ville extends Couverture {
     @JsonIgnore
     private List<Quartier> quartiers = new ArrayList<Quartier>();
 
+    public Ville(String nom) {
+        super();
+        this.nom = nom;
+    }
+
 }
