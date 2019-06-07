@@ -25,4 +25,6 @@ public class Region extends Couverture {
     @JsonIgnore
     private List<Ville> villes = new ArrayList<Ville>();
 
+
+
 }

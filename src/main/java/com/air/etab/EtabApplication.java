@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -15,9 +16,9 @@ import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
-public class EtabApplication implements CommandLineRunner {
+public class EtabApplication extends SpringBootServletInitializer implements CommandLineRunner {
 
-    @Autowired
+    /*@Autowired
     private RegionRepository regionRepository;
     @Autowired
     private VilleRepository villeRepository;
@@ -36,7 +37,7 @@ public class EtabApplication implements CommandLineRunner {
     @Autowired
     private RoleService roleService;
     @Autowired
-    private CouvertureRepository couvertureRepository;
+    private CouvertureRepository couvertureRepository;*/
 
 
     public static void main(String[] args) {
@@ -54,7 +55,7 @@ public class EtabApplication implements CommandLineRunner {
         //r.setCouverture(regionRepository.getOne((long) 4));
         //roleService.save(r);
         //administrateurService.findAdministrateurByNom("admin3").setRole(r);
-        administrateurService.addRoleToAdmin("admin3", couvertureRepository.getOne((long) 4).getId());
+        //administrateurService.addRoleToAdmin("admin3", couvertureRepository.getOne((long) 4).getId());
 
         /*couvertureRepository.deleteById((long) 30);
         couvertureRepository.deleteById((long) 31);
@@ -113,8 +114,8 @@ public class EtabApplication implements CommandLineRunner {
         /*etablissementRepository.findAll().forEach(e->{
             System.out.println(e.getNom());
         });*/
-        quartierRepository.findAll().forEach(q->{
+        /*quartierRepository.findAll().forEach(q->{
             System.out.println(q.getNom());
-        });
+        });*/
     }
 }
