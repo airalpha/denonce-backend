@@ -12,5 +12,5 @@ Frontend <a href="https://github.com/AIRALPHA/denonce-frontend">here</a>
      style="float: left; margin-right: 10px;" />
      
 
-##BD
-Create bd name denonce and export this file <a href="https://github.com/AIRALPHA/denonce-backend/blob/master/denonce.sql">denonce.sql</a> 
+## BD
+Create bd name "denonce" and import this file <a href="https://github.com/AIRALPHA/denonce-backend/blob/master/denonce.sql">denonce.sql</a> 
