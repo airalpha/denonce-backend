@@ -10,3 +10,7 @@ Frontend <a href="https://github.com/AIRALPHA/denonce-frontend">here</a>
 <img src="https://github.com/AIRALPHA/denonce-backend/blob/master/images/back2.png?raw=true"
      alt=""
      style="float: left; margin-right: 10px;" />
+     
+
+##BD
+Create bd name denonce and export this file <a href="https://github.com/AIRALPHA/denonce-backend/blob/master/denonce.sql">denonce.sql</a> 
