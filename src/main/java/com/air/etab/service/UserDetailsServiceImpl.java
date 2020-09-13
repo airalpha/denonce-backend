@@ -24,7 +24,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         Administrateur administrateur = administrateurService.findAdministrateurByNom(userName);
-        //System.out.println(userName);
+        //System.out.println("name"+userName);
         if (administrateur == null) throw new UsernameNotFoundException(userName);
 
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
